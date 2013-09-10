@@ -1,0 +1,8 @@
+You have to import the content of jsCode in your JS file and proceed ahead
+
+for checking validation of email
+>deviator.validateEmail()
+
+for checking whether the managers and users email are same
+use the following 
+>deviator.profileEmailCheck()

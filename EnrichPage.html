@@ -1,0 +1,140 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Title</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="header">
+				<div class="logo"></div>
+				<nav>
+					<ul id="profile-header-menu">
+						<li id="prpg-menu1">
+							<div style="width:auto; border:#00FF00 solid 0px;">
+							<input type="text" name="search" size="70" /><div class="searchBtn"></div>
+							</div>						
+						</li>
+						<li id="prpg-menu2">
+							<div class="msgIcon"></div>						
+						</li>
+						<li id="prpg-menu2">
+							<a href="javascript:void(0);">Log Out</a>						
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="enrichPgContent">
+				<div class="enrichContent">
+					<div class="pHeader">Provide information</div>
+					
+					<div class="rdButtonDiv">
+						<div><input type="radio" name="enrichRdBtn" checked="checked" value="1" />My Employee</div>
+						<div><input type="radio" name="enrichRdBtn" value="2" />My Peer</div>
+						<div><input type="radio" name="enrichRdBtn" value="3" />Other Proffessional</div>
+					</div>
+					
+					<div class="enrichTxtDiv" id="en1">
+						<div>
+							<input type="text" name="eid1" size="30" class="enrichTxtBox" title="John@pbs.com" />
+						</div>
+						<div>
+							<input type="text" name="eid2" size="30" class="enrichTxtBox" title="Employee's work email id" />
+						</div>
+					</div>
+					
+					<div class="enrichTxtDiv" id="en2" style="display:none;">
+						<div>
+							<input type="text" name="eid1" class="enrichTxtBox" title="David@pbs.com" />
+						</div>
+						<div style="margin:0; width:350px;">
+							<input type="text" name="eid2" class="enrichTxtBox" title="John@pbs.com" />
+							&nbsp;&nbsp;
+							<input type="text" name="eid3"  class="enrichTxtBox" title="peer's work email id" />
+						</div>
+					</div>
+					
+					
+					<div class="enrichTxtDiv" id="en3" style="display:none;">
+						<div>
+							<input type="text" name="eid1" size="40" class="enrichTxtBox" title="Manager's worl email id" />
+						</div>
+						<div>
+							<input type="text" name="eid2" size="40" class="enrichTxtBox" title="Proffessional's work email id" />
+						</div>
+					</div>
+					
+				</div>
+				
+				
+			</div>
+
+			<div class="profileMenu">
+			 	<nav>
+					<ul id="profilePgMenu">
+						<li><a href="javascript:void(0);">Home</a></li>
+						<li><a href="javascript:void(0);">Profile</a></li>
+						<li><a href="javascript:void(0);">Enrich</a></li>
+						<li><a href="javascript:void(0);">Favourites</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="footer">
+				<nav>
+					<ul id="footer-menu">
+						<li id="f-menu" style="width:125px;">
+							<div class="footerLogo"></div> <div class="copyright">&copy; 2013</div>
+						</li>
+						<li id="f-menu">
+							<a href="javascript:void(0);">User Aggrement</a>						</li>
+						<li id="f-menu">
+							<a href="javascript:void(0);">Privacy Policy</a>						</li>
+						<li id="f-menu2">
+							<a href="javascript:void(0);">Community Guidelines</a>						</li>
+						<li id="f-menu">
+							<a href="javascript:void(0);">Cookie Policy</a>						</li>
+						<li id="f-menu">
+							<a href="javascript:void(0);">Copyright Policy</a>						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+$('input[type="text"]').each(function(){
+ 
+    this.value = $(this).attr('title');
+    $(this).addClass('text-label');
+ 
+    $(this).focus(function(){
+        if(this.value == $(this).attr('title')) {
+            this.value = '';
+            $(this).removeClass('text-label');
+        }
+    });
+ 
+    $(this).blur(function(){
+        if(this.value == '') {
+            this.value = $(this).attr('title');
+            $(this).addClass('text-label');
+        }
+    });
+});
+
+$(document).ready(function() {
+    $("input[name$='enrichRdBtn']").click(function() {
+        var test = $(this).val();
+
+        $("div.enrichTxtDiv").hide();
+        $("#en" + test).show();
+    });
+});
+</script>
+	</body>
+</html>
